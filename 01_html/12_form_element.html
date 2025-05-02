@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼(form) 태그 </title>
+    <style>
+        .wrap {
+            margin:0 auto;
+            width:80%
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1> 폼(form) 태그 </h1>
+        <!-- client 와 server 와 통신 할때 사용하는 태그
+                -cleint 의 데이터를 서버로 전송 할때 사용, 
+                로그인(ID/Pass), 
+                회원가입 (), ID ,pass, 주소, 이미지, 하고싶은 말
+
+            action : 서버에서 처리할 페이지
+            method : client 의 데이터를 서버로 전송하는 방식
+                get: client의 데이터를 URL 뒤에 넣어서 서버로 전송
+                    255byte 까지만 전송됨, 보안 에 취약
+                post : http 헤더 앞에서 데이터를 전송, url에 출력되지 않음, 보안이 강하다. 
+                     : 무제한 데이터를 전송송
+        -->
+        <hr>
+
+        <h2> 회원가입 양식 </h2>
+        <p />
+        <form action="#" method="get" >
+
+            <table>
+                <tr><td>아이디 :</td><td><input type="text" 
+                    placeholder="아이디를 입력해주세요"></td></tr>
+                <tr><td>패스워드 :<td><input type ="password"
+                    placeholder="패스워드를 입력해주세요"></td></tr>
+                <tr><td>패스워드 확인 : </td><td><input type ="password"
+                    placeholder="패스워드를 확인해주세요"></td></tr>
+                <tr><td>이메일 : </td><td><input type ="email"
+                    placeholder="메일주소를 입력해주세요"></td></tr>
+                <tr><td>전화번호 : </td><td><input type ="tel"
+                    placeholder="전화번호를 입력해주세요"></td></tr>
+                <tr><td>성별 : </td><td>
+                    <select>
+                        <option value="man"> 남자</option>
+                        <option value="woman"> 여자</option>
+                    </select>
+                    </td></tr>
+                    <tr><td>생년월일 : </td><td><input type="date"></td></tr>
+                    <tr><td>자기소개 : </td><td>
+                        <textarea rows="30" cols="100" placeholder="자기소개를 넣어주세요">
+                        </textarea>
+                    </td></tr>
+            </table>
+            
+
+
+        </form>
+    </div>
+    
+</body>
+</html>
