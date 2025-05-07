@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성(property) 선택자</title>
+    <style>
+        h1[text]{
+            color:red;
+            background-color: gray;
+        }
+        h1[text="addr3"] {
+            color:green;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 속성 선택자
+        태그의 속성을 선택함. [속성=값]을 선택함.
+
+        art + shift + 아랫쪽화살표 : 커서의 라인을 복사
+        art + shift + f : 코드 자동정렬렬
+    -->
+
+    <h1 text="addr1"> text 속성이름 선택자 </h1>
+    <h1 text="addr2"> text 속성이름 선택자 </h1>
+    <h1 text="addr3"> text 속성이름 선택자 </h1>
+    <h1> text 속성이름 선택자 없음 </h1>
+    <p> 속성 선택 없음 </p>
+</body>
+
+</html>

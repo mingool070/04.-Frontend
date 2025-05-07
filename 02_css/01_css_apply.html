@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 적용 방법 3가지지</title>
+    <style>
+        /* 내부 스타일 시트 적용 */
+        p2 {
+            font-family:'Times New Roman', Times, serif;
+            font-size: 60px ;
+            color: aqua;
+            font-weight: bold;
+            
+        }
+    </style>
+
+    <!-- 외부 스타일 시트 링크 -->
+    <link rel="stylesheet" href="./css/css.external.css">
+    
+</head>
+<body>
+    <!--
+       1. 인라인 스타일 시트 : HTML 태그 내부에 CSS 를 적용 , 간단하게 처리, 우선순위가 높다.
+       2. 내부 스타일 시트 : HTML 문서에 적용, head 블락에 <style> css적용 </style>
+       3. 외부 스타일 시트 : 외부 파일에 스타일을 적용, 확장자 (*.css), 불러와서 적용 (제일 많이 사용됨)
+    -->
+
+    <!-- 1. 인라인 스타일 시트 -->
+      <p1 style ="color:red; font-size: 100px; font-weight: 700; "> 인라인 스타일 시트 적용 </p1>
+          <br> <br>
+    <!-- 2. 내부 스타일 시트 -->
+      <p2> 내부 스타일 시트 </p2>
+          <br> <br>
+    <p3> 외부 스타일 시트 적용 </p3>
+    
+</body>
+</html>

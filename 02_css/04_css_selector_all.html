@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자(selector) - 모든 선택자 </title>
+    <style>
+        *{
+            color:red;
+            background-color: yellow;
+            font-size: 13px;
+        }
+        .p1{
+            color : blue;
+            font-size: 50px;
+        }
+        #p2{
+            color:brown;
+            font-size: 30px;            
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        모든(전체) 선택자 : *
+            - 모든 태그를 선택, 주로 기본 설정, 
+            - 주로 모든 태그의 margin:0; padding:0;
+            - a 의 밑줄을 없앰
+            - ol>li 의 동그라미 없앰.
+
+    -->
+    <h1> 모든 선택자 (Universel Selector) </h1>
+    <h2> 모두 같은 색상 처리됨 </h2>
+    <h3> 전체적으로 동시에 스타일 적용됨 </h3>
+    <p> 모든 태그에 적용됨 </p>
+
+    <p class ="p1"> Class 속성 - 충돌 되면 우선 적용 </p>
+    <p class="p1"> class 속성 2 </p>
+    <p id = "p2"> id 속성 - 충돌 되면 우선 적용 </p> 
+
+</body>
+</html>

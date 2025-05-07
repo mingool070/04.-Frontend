@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 중복 적용된 경우 우선순위 [동일한 레벨일때] </title>
+    <style>
+        p{color : red !important; }
+        p{color : blue;}
+        p{color : green;}
+    </style>
+</head>
+<body>
+    <!-- 
+       css 중복 적용된 경우 우선순위 [동일한 레벨일때]
+       제일 나중에 적용한것이 적용된다.
+    -->
+
+    <p> 동일한 레벨에서 중복 적용된경우 - 제일 마지막에 내용이 적용됨 </p>
+</body>
+</html>
