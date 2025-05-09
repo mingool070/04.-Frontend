@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'NotoR';
+    font-size: 15px;
+    letter-spacing: -1px;
+    line-height: 1.25em;
+    color: #000;
+}
+ul{
+    list-style-type: none;
+}
+ul li{
+    text-decoration: none;
+    display: inline;
+}
+.clear{
+    clear: both;
+}
+header{
+    width: 1180px;
+    height: 100px;
+    margin: 0 auto;
+    background: #fff;
+}
+header #top{
+    margin: 0 auto;
+}
+header #top a#logo{
+    float: left;
+    margin-top: 30px;
+}
+#top_menu{
+    float: right;
+    margin-top: 40px;
+}
+#top_menu li{
+    margin: 0 20px 0 0;
+}
+#top_menu li a{
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+}
+#footer{
+    width: 1180px;
+    margin: 0 auto;
+    border-top: 2px solid #9e9e9e;
+}

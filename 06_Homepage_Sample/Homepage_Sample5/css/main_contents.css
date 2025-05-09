@@ -1,0 +1,96 @@
+
+.name{          /* 제목 */
+    text-align: center;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.p_name{
+    font-size: 12px;
+    margin-top: 10px;
+}
+.price{
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(34, 34, 34);
+}
+
+.best_product_list img{
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+}
+#best_product{
+    margin-top: 200px;
+}
+.best_products{
+    display: inline-block;
+ 
+}
+.best_product_list li{
+    list-style-type: none;
+    text-align: center;
+    color: gray;
+}
+
+
+
+.pro_list{
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(95, 95, 95);
+    text-align: center;
+}
+.clear {
+    clear:both;
+}
+
+#main_new_img img{
+    width:1500px;
+    border-radius: 30px;
+    margin-bottom: 100px;
+}
+
+#new_product{
+    margin-top: 200px;
+}
+.new_products{
+    display: inline-block;
+    /* margin-left: 10px; */
+    /* margin-top: 200px; */
+}
+.new_products li{
+    list-style-type: none;
+    color: rgb(105, 105, 105);
+    text-align: center;
+}
+.new_products img{
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+}
+
+#main_made_img img{
+    width:1500px;
+    border-radius: 30px;
+    margin-bottom: 100px;
+}
+
+#made_product{
+    margin-top: 200px;
+}
+.made_products{
+    display: inline-block;
+    /* margin-left: 20px; */
+    /* margin-top: 200px; */
+}
+.made_products li{
+    list-style-type: none;
+    color: rgb(105, 105, 105);
+    text-align: center;
+}
+.made_products img{
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+}

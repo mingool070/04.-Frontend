@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIPHOP</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/main_contents.css">
+    <link rel="stylesheet" type="text/css" href="css/drop.css">
+    <style type="text/css">	
+        /* banner */
+        .banner {position: relative; width:1500px; height: 600px; top: 50px;  margin:0 auto; padding:0; overflow: hidden;}
+        .banner ul {position: absolute; margin: 0px; padding:0; list-style: none; }
+        .banner ul li {float: left; width: 1500px; height:600px; margin:0; padding:0;}
+        
+    
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <script language="JavaScript">
+    
+        $(document).ready(function() {
+            var $banner = $(".banner").find("ul");
+    
+            var $bannerWidth = $banner.children().outerWidth();//이미지의 폭
+            var $bannerHeight = $banner.children().outerHeight(); // 높이
+            var $length = $banner.children().length;//이미지의 갯수
+            var rollingId;
+    
+            //정해진 초마다 함수 실행
+            rollingId = setInterval(function() { rollingStart(); }, 4000);//다음 이미지로 롤링 애니메이션 할 시간차
+        
+            function rollingStart() {
+                $banner.css("width", $bannerWidth * $length + "px");
+                $banner.css("height", $bannerHeight + "px");
+                //alert(bannerHeight);
+                //배너의 좌측 위치를 옮겨 준다.
+                $banner.animate({left: - $bannerWidth + "px"}, 1500, function() { //숫자는 롤링 진행되는 시간이다.
+                    //첫번째 이미지를 마지막 끝에 복사(이동이 아니라 복사)해서 추가한다.
+                    $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
+                    //뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
+                    $(this).find("li:first").remove();
+                    //다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
+                    $(this).css("left", 0);
+                    //이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
+                });
+            }
+        }); 
+    
+    </script>
+
+</head>
+<body>
+    <header>
+    <div id="top_left_menu">
+        <img src="img/earth.PNG">
+        <img src="img/human.PNG">
+        <img src="img/call.PNG">
+    </div>
+    <div id="main_name">
+    <a href="index.html">L I P H O P</a>
+    </div>
+    <input type="text" id="textbox" placeholder="립합에서 검색해보세요">
+
+    <nav id="main_top_menu">
+        <ul>
+            <li><a href="sub.html">MADE</a></li>
+            <li><a href="daily.html">DAILY</a></li>
+            <li><a href="best.html">BEST</a></li>
+            <li class="dropbtn"><a href="outer.html">OUTER</a>
+                <ol class="dropdown-content">
+                    <li><img src="img/outer_dropdown.jpg"></li>
+                </ol>
+            </li>
+
+            <li class="dropbtn"><a href="top.html">TOP</a>
+                <ol class="dropdown-content">
+                    <li><img src="img/top_dropdown.jpg"></li>
+                </ol>
+            </li>
+
+            <li class="dropbtn"><a href="bottom.html">BOTTOM</a>
+                <ol class="dropdown-content">
+                    <li><img src="img/bottom_dropdown.jpg"></li>
+                </ol>
+            </li>
+
+            <li class="dropbtn"><a href="set.html">SET(ONE-PIECE)</a>
+                <ol class="dropdown-content">
+                    <li><img src="img/set_dropdown.jpg"></li>
+                </ol>
+            </li>
+
+            <li class="dropbtn"><a href="shosebag.html">SHOES&BAG</a>
+                <ol class="dropdown-content">
+                    <li><img src="img/shose_bag_dropdown.jpg"></li>
+                </ol>
+            </li>
+            
+            <li class="dropbtn"><a href="acc.html">ACC</a>
+                <ol class="dropdown-content">
+                    <li><img src="img/acc_dropdown.jpg"></li>
+                </ol>
+            </li> 
+        </ul>
+    </nav>
+
+
+    </header>
+    
+    <main>
+        <section id="main_top_slide">
+            <div class="banner">
+                <ul>
+                    <li><img src="img/main_pc1.jpg" width="1500" height="600px"></li>
+                    <li><img src="img/PC_max.jpg" width="1500" height="600px"></li>
+                    <li><img src="img/Daily_pc.jpg" width="1500" height="600px"></li>
+                
+                </ul>
+            </div>
+        </section>
+
+        <section id="best_product">
+        <div id="best_item">
+            <h2 class="name">BEST ITEM</h2>
+
+            <div class="best_products">
+                <ul class="best_product_list">
+                    <li><img src="img/best1.PNG"></li>
+                    <li class="p_name">블루 밀리퍼 [누빔 안감]</li>
+                    <li class="price">185,000</li>
+                </ul>
+            </div>
+
+            <div class="best_products">
+                <ul class="best_product_list">
+                    <li><img src="img/best2.PNG"></li>
+                    <li class="p_name">블루 밀리퍼 [누빔 안감]</li>
+                    <li class="price">185,000</li>
+                </ul>
+            </div>
+
+            <div class="best_products">
+                <ul class="best_product_list">
+                    <li><img src="img/best3.PNG"></li>
+                    <li class="p_name">뉴욕 크롭퍼</li>
+                    <li class="price">210,000</li>
+                </ul>
+            </div>
+
+            <div class="best_products">
+                <ul class="best_product_list">
+                    <li><img src="img/best4.PNG"></li>
+                    <li class="p_name">레오파드 크롭 집업</li>
+                    <li class="price">29,500</li>
+                </ul>
+            </div>
+
+            <div class="best_products">
+                <ul class="best_product_list">
+                    <li><img src="img/best5.PNG"></li>
+                    <li class="p_name">퀸스퍼후드집업</li>
+                    <li class="price">99,500</li>
+                </ul>
+            </div>
+        </div>
+        </section>
+
+   
+        <section>
+        <div id="new_product">
+            <h2 class="name">NEW ARRIVALS</h2>
+
+            <div id="main_new_img">
+                <img src="img/new_pc.jpg">
+            </div>
+
+            <div class="new_products">
+                <ul class="new_product_list">
+                    <li><img src="img/new1.PNG"></li>
+                    <li class="p_name">쿠키조거밴딩팬츠</li>
+                    <li class="price">47,300</li>
+                </ul>
+            </div>
+
+            <div class="new_products">
+                <ul class="new_product_list">
+                    <li><img src="img/new2.PNG"></li>
+                    <li class="p_name">에프패치니트</li>
+                    <li class="price">40,800</li>
+                </ul>
+            </div>
+
+            <div class="new_products">
+                <ul class="new_product_list">
+                    <li><img src="img/new3.PNG"></li>
+                    <li class="p_name">더블롱야상점퍼</li>
+                    <li class="price">56,000</li>
+                </ul>
+            </div>
+
+            <div class="new_products">
+                <ul class="new_product_list">
+                    <li><img src="img/new4.PNG"></li>
+                    <li class="p_name">투톤비조데님팬츠</li>
+                    <li class="price">46,800</li>
+                </ul>
+            </div>
+
+            <div class="new_products">
+                <ul class="new_product_list">
+                    <li><img src="img/new5.PNG"></li>
+                    <li class="p_name">라울퍼프티</li>
+                    <li class="price">23,700</li>
+                </ul>
+            </div>
+
+            
+
+        </section>
+
+        <section id="products">
+            <div id="made_product">
+                <h2 class="name">MADE</h2>
+    
+                <div id="main_made_img">
+                    <img src="img/made_pc.jpg">
+                </div>
+    
+                <div class="made_products">
+                    <ul class="made_product_list">
+                        <li><img src="img/made1.PNG"></li>
+                        <li class="p_name">트윈스퀘어워머원피스</li>
+                        <li class="price">35,000</li>
+                    </ul>
+                </div>
+    
+                <div class="made_products">
+                    <ul class="made_product_list">
+                        <li><img src="img/made2.PNG"></li>
+                        <li class="p_name">미리메리퍼[누빔안감]</li>
+                        <li class="price">147,000</li>
+                    </ul>
+                </div>
+    
+                <div class="made_products">
+                    <ul class="made_product_list">
+                        <li><img src="img/made3.PNG"></li>
+                        <li class="p_name">서킷크롭티</li>
+                        <li class="price">24,000</li>
+                    </ul>
+                </div>
+    
+                <div class="made_products">
+                    <ul class="made_product_list">
+                        <li><img src="img/made4.PNG"></li>
+                        <li class="p_name">뉴욕크롭퍼</li>
+                        <li class="price">210,000</li>
+                    </ul>
+                </div>
+    
+                <div class="made_products">
+                    <ul class="made_product_list">
+                        <li><img src="img/made5.PNG"></li>
+                        <li class="p_name">파이톤가넷트임티</li>
+                        <li class="price">26,000</li>
+                    </ul>
+                </div>
+    
+             
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="footer">
+            <div class="footer_box">
+                <p>CEO : 유예진</p>
+                <p>COMPANY : (주)립합</p>
+                <p>ADDRESS : 서울특별시 강남구 봉은사로37길 20 (논현동) 1층</p>
+                <p>BUSINESS LICENSE : 203-32-32453</p>
+                <p>E-MAIL : dbdpwls5446@naver.com</p>
+            </div>
+            <div class="footer_box">
+                <h4>BANK INFO</h4>
+                <p>농협 355-9944-4847-338</p>
+                <p>국민 938473-04-987345</p>
+                <p>우리 1003-501-993873</p>
+                <p>신한 100-239-048374</p>
+                <p>예금주 : (주)립합 </p>
+            </div>
+            <div class="footer_box">
+                <h4>CUSTOMER</h4>
+                <p>1944-9292</p>
+                <p>카카오 상담톡 [LIPHOP]</p>
+                <p>WEEK AM  10:00 ~ PM : 5:00</p>
+                <p>LUNCH AM 11:50 ~ PM 1: 00</p>
+                <p>DAY OF (SAT, SUN, HOLIDAY)</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
