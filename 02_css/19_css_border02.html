@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 출력 레이아웃 (float) </title>
+    <style>
+        div {
+            border: 1px solid red
+        }
+
+        .wrap {
+            width: 80%;
+            margin: 0 auto;
+            /* 중앙에 배치 */
+        }
+
+        .d1 {
+            width: 200px;
+            height: 200px;
+            float: left;     /* 블락으로 떨어진 박스를 인라인 형식으로 바꿈 */
+            margin: 50px;
+        }
+        .clear {
+            /* float 속성을 제거함. both : left, right */
+            clear:both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- emet :  코드 자동 완성 , VScode 에 내장되어 있음.
+        예제 : div.wrap>div.d1*20
+    -->
+
+    <div class="wrap">
+        <div class="d1">1</div>
+        <div class="d1">2</div>
+        <div class="d1">3</div>
+        <div class="d1">4</div>
+        <div class="d1">5</div>
+        <div class="d1">6</div>
+        <div class="d1">7</div>
+        <div class="d1">8</div>
+        <div class="d1">9</div>
+        <div class="d1">10</div>
+
+        <!-- 플랫 속성을 제거 -->
+         <div class="clear"> </div>
+
+        <div class="d1">11</div>
+        <div class="d1">12</div>
+        <div class="d1">13</div>
+        <div class="d1">14</div>
+        <div class="d1">15</div>
+        <div class="d1">16</div>
+        <div class="d1">17</div>
+        <div class="d1">18</div>
+        <div class="d1">19</div>
+        <div class="d1">20</div>
+    </div>
+</body>
+
+</html>

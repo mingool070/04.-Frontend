@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style> 
+		.wrap{
+			width: 80%;
+			margin : 0 auto; 
+		}
+		.d1 {
+			width : 50px ; 
+			/* line-height: 50px ;  */
+			height: 50px;
+			margin : 30px ; 
+			border : 1px solid red ; 
+			border-radius: 25px;
+			text-align: center;                /* 수평정렬 */
+			align-content: center;             /* 수직정렬 */
+			float: left;	
+		}
+		.clear{
+			/* 해당 위치에서 float 속성을 clear */ 
+			clear:both; 
+		}
+
+		.dd {
+			background-color: rgb(149, 207, 107);
+		}
+	</style>
+</head>
+<body>
+<!-- emmet : 
+	div.wrap>div.d1{$}*20
+-->
+
+	<div class="wrap">
+		<div class="d1">1</div>
+		<div class="d1">2</div>
+		<div class="d1">3</div>
+		<div class="d1 dd">4</div>
+
+		<div class="clear"></div>
+		
+		<div class="d1">5</div>
+		<div class="d1">6</div>
+		<div class="d1">7</div>
+		<div class="d1 dd">8</div>
+
+		<div class="clear"></div>
+
+		<div class="d1">9</div>
+		<div class="d1">10</div>
+		<div class="d1">11</div>
+		<div class="d1 dd">12</div>
+
+		<div class="clear"></div>
+
+		<div class="d1">13</div>
+		<div class="d1">14</div>
+		<div class="d1">15</div>
+		<div class="d1 dd">16</div>
+
+		<div class="clear"></div>
+
+		<div class="d1">17</div>
+		<div class="d1">18</div>
+		<div class="d1">19</div>
+		<div class="d1 dd">20</div>
+	</div>
+
+	
+</body>
+</html>
