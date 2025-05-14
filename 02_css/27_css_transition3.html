@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: orange;
+            transition: background-color 10s, box-shadow 10s;
+        }
+        div:hover {
+            background-color: blue;
+            box-shadow:5px 5px 10px black;
+        }
+        span {
+            /* span은 인라인 태그 */
+            display: inline-block;
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div> 마우스를 올리면 색상이 천천히 바뀝니다. </div>
+
+    <span> 마우스를 올리면 크기가 늘어납니다. </span>
+</body>
+</html>

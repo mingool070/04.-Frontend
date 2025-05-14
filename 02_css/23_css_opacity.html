@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* display 속성 :
+                    block     : width 100%, margin,padding, height를 조정 할 수 있다. 엔터(0)
+                    inline    : width 컨텐츠 크기만큼 정의,height 조정이 안됨, 엔터(x)
+                    inline-block : 엔터가 없다, width, height, margin,padding                엔터:줄바꿈
+            */
+            display : inline-block;
+            border : 1px solid red;
+            margin : 20px;
+        }
+        .d1 {
+            background-color: gray;
+        }
+
+        .pic1 {
+            /* 이미지의 투명도 정의 : 1.0 ~ 0.0 */
+            opacity: 0.5;
+            box-shadow: 5px 5px 20px black;
+        }
+
+        .pic1:hover {
+            opacity: 0.9;
+            box-shadow: 10px 10px 10px black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Opacity 속성 : 그림의 투명도를 정의 ( 1.0 완전 불투명 ~0.0 완전 투명)
+    -->
+
+    <div class="d1">
+        <img class="pic1" src="./img/img/pic1.jpg" alt="펭귄 이미지">
+    </div>
+    <div class="d1">
+        <img class="pic1" src="./img/img/pic1.jpg" alt="펭귄 이미지">
+    </div>
+    <div class="d1">
+        <img class="pic1" src="./img/img/pic1.jpg" alt="펭귄 이미지">
+    </div>
+    <div class="d1">
+        <img class="pic1" src="./img/img/pic1.jpg" alt="펭귄 이미지">
+    </div>
+</body>
+
+</html>

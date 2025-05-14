@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            color: yellow;
+            border: 1px solid black;
+            transition: width 3s; 
+
+        }
+        .div1{ transition-timing-function: linear;}
+        .div2{ transition-timing-function: ease;}
+        .div3{ transition-timing-function: ease-in;}
+        .div4{ transition-timing-function: ease-out;}
+        .div5{ transition-timing-function: ease-in-out;}
+        .div6{ transition-timing-function: cubic-bezier(0.1, 0.0, 0.1, 1.0);}
+
+        div:hover{
+            width: 300px; 
+        }
+
+    </style>
+</head>
+<body>
+    <!--
+        transition-timing-function
+                linear
+                ease
+                ease-in
+                ease-out
+                ease-in-out
+                cubic-bezier
+    -->
+    <!-- emmet 
+        div.div{$}*6 
+    -->
+    <div class="div1">linear</div>
+    <div class="div2">ease</div>
+    <div class="div3">ease-in</div>
+    <div class="div4">ease-out</div>
+    <div class="div5">ease-in-out</div>
+    <div class="div6">cubic-bezier</div>
+
+</body>
+</html>
