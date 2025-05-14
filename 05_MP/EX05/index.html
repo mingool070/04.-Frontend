@@ -1,72 +1,124 @@
 ﻿<!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>클래식기타 커뮤니티</title>
-  <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <style>
+    .background {
+      margin-left: 800px;
+      width: 40%;
+      height: 40px;
+      background-image: url('./img/main_menu_bg.png');
+    }
     #d1 {
       float: left;
-      border:1px solid red;
-      width: 30px;
-      height: 10px;
     }
-    #wrap {
-      border:1px solid red;
+    .clear {
+      clear: both;
     }
-    #d1 {
-      border:1px solid red;
-    }
-    .c1 {
-      margin-left: 1600px;
-    }
-    #d2 {
-      height: 20px;
-      margin-left: 200px;
-      margin-top: 20px;
-    }
-    #im1 {
-      width:1600px;
-      height:50px;
+    .d1 {
+      margin-left: 1100px;
     }
     #a1 {
-      margin: 120px;
+      margin: 38px;
     }
-    .image-with-text {
-      width: 757px;             /* 배경 이미지 크기에 맞게 설정 */
-      height: 38px;
-      background-image: url('이미지경로.png');
-      background-size: cover;   /* 이미지를 요소 크기에 맞게 채움 */
-      display: flex;            /* 텍스트 정렬을 위한 flex 사용 */
-      justify-content: space-around;
+    .d2 {
+      margin-left: 300px;
+    }
+    #i1 {
+      width: 400px;
+      height: 100px;
+    }
+    #d2 {
+      width: 80px;
+      height: 80px;
+      border-radius: 40px solid red;
+    }
+    .sidebar {
+      display: flex;
       align-items: center;
-      color: white;             /* 텍스트 색상 */
-      font-weight: bold;
-      font-family: sans-serif;
+      gap: 10px;          
     }
-
-    .menu-item {
-      flex: 1;
-      text-align: center;
-      cursor: pointer;
+    .visitor-book {
+      display: flex;
+      align-items: center;
+      gap: 10px;          
     }
-
-    .menu-item:hover {
-      text-decoration: underline;
+    #im1 {
+      margin-left: 500px;
     }
   </style>
 </head>
-
 <body>
   <header>
-    <div id="wrap">
-      <div id="d1"><img src="./img/logo.png"></div>
-      <div class="c1" id="d1">HOME|LOGIN|JOIN|NOTICE</div>
-      <div id="d2"><a id="a1">자유게시판</a><a id="a1">기타 연주</a><a id="a1">공동구매</a><a id="a1">연주회안내</a><a id="a1">회원게시판</a>
-        <img id="im1" src="./img/main_menu_bg.png">
-    </div>
-    <div background img></div>
-  </header>
-</body>
+    <div id="d1" class="d2"><img src="./img/logo.png" id="i1"></div>
+    <div id="d1" class="d1">HOME|LOGIN|JOIN|NOTICE</div>
 
+    <div class="clear"></div>
+    <div class="background">
+       <a id="a1">자유 게시판</a>
+       <a id="a1">기타 연주</a>
+       <a id="a1">공동구매</a>
+       <a id="a1">연주회 안내</a>
+       <a id="a1">회원 게시판</a>
+    </div>
+  </header>
+  <main>
+    <div class="content">
+      <aside class="side">
+        <img src="./img/ttl_login.png"><br>
+        <input type="text" placeholder=><br>
+      </aside>
+      <aside class="sidebar">
+        <input type="password" placeholder=><br>
+        <img src="./img/btn_login.gif">
+      </aside>
+      <div class="login-links">
+        <img src="./img/btn_join.gif">
+        <img src="./img/btn_search.gif">
+      </div>
+    </div>
+     <div class="visitor-book">
+          <ul>
+            <img src="./img/ttl_memo.gif">
+            <li>안녕하세요!</li>
+            <li>안녕하세요!</li>
+            <li>안녕하세요!</li>
+          </ul>
+          <img id="im1" src="./img/main_img.png">
+     </div>
+         <div>
+            <div>
+            <img src="./img/latest1.gif">
+            <img src="./img/more.gif">
+            </div>
+            <div><img src="./img/book_pen.gif"></div>
+          </div>
+           <div class="notices"></div>
+            <ul>
+              <li>루바토 개편과 사이트 이용...</li>
+              <li>루바토 개편과 사이트 이용...</li>
+              <li>루바토 개편과 사이트 이용...</li>
+              <li>루바토 개편과 사이트 이용...</li>
+            </ul>
+          </div>
+          <div class="notices">
+            <div>
+            <img src="./img/latest2.gif">
+            <img src="./img/more.gif">
+            </div>
+            <div><img src="./img/book_pen.gif"></div>
+           <div>
+            <ul>
+              <li>까스릉님의 선물인 보드카...</li>
+              <li>까스릉님의 선물인 보드카...</li>
+              <li>까스릉님의 선물인 보드카...</li>
+              <li>까스릉님의 선물인 보드카...</li>
+            </ul>
+            </div>
+          </div>
+     </main>
+</body>
 </html>
+
