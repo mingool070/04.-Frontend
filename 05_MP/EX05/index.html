@@ -4,12 +4,69 @@
 <head>
   <meta charset="utf-8">
   <title>클래식기타 커뮤니티</title>
+  <style>
+    #d1 {
+      float: left;
+      border:1px solid red;
+      width: 30px;
+      height: 10px;
+    }
+    #wrap {
+      border:1px solid red;
+    }
+    #d1 {
+      border:1px solid red;
+    }
+    .c1 {
+      margin-left: 1600px;
+    }
+    #d2 {
+      height: 20px;
+      margin-left: 200px;
+      margin-top: 20px;
+    }
+    #im1 {
+      width:1600px;
+      height:50px;
+    }
+    #a1 {
+      margin: 120px;
+    }
+    .image-with-text {
+      width: 757px;             /* 배경 이미지 크기에 맞게 설정 */
+      height: 38px;
+      background-image: url('이미지경로.png');
+      background-size: cover;   /* 이미지를 요소 크기에 맞게 채움 */
+      display: flex;            /* 텍스트 정렬을 위한 flex 사용 */
+      justify-content: space-around;
+      align-items: center;
+      color: white;             /* 텍스트 색상 */
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+
+    .menu-item {
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .menu-item:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
-  <div id="wrap">
-    
-  </div> 
+  <header>
+    <div id="wrap">
+      <div id="d1"><img src="./img/logo.png"></div>
+      <div class="c1" id="d1">HOME|LOGIN|JOIN|NOTICE</div>
+      <div id="d2"><a id="a1">자유게시판</a><a id="a1">기타 연주</a><a id="a1">공동구매</a><a id="a1">연주회안내</a><a id="a1">회원게시판</a>
+        <img id="im1" src="./img/main_menu_bg.png">
+    </div>
+    <div background img></div>
+  </header>
 </body>
 
 </html>
