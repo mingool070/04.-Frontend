@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {border: 1px solid red; width: 50%; height: 5000px; margin: 0 auto;
+              position: relative;
+            }
+        .po{
+            width: 100px; height: 100px; border: 1px solid red;
+        }
+        .d3{background-color: aqua; position: absolute; left: 100px; top: 100px;}
+    </style>
+</head>
+<body>
+    <!-- position absoluted 속성 : 
+           -이동의 기준점은 부모인데 상위 position 속성이 없으면, 상위 body
+    위치 이동은 부모가 기준점 -->
+
+    <div class="wrap">
+        <div class="po d1">1</div>
+        <div class="po d2">2</div>
+        <div class="po d3">3</div>
+        <div class="po d4">4</div>
+        <div class="po d5">5</div>
+    </div>
+
+</body>
+</html>

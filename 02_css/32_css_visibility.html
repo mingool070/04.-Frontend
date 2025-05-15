@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v1{ opacity: 0.0 ; border: 1px solid red;}
+        .v2{ visibility: hidden;}
+        .v3{ display: none;}
+        .v4{}
+    </style>
+</head>
+<body>
+    <!-- 
+       opacity : 0%, 0.0            <== 투명도를 0으로 설정
+       visibility 속성 : 화면에 보여지는 속성 (가시성 속성)
+           hidden : 화면에 보이지 않도록 설정, 자신의 영역은 유지.
+           visiable : 화면에 보여지도록 설정.  <==  (기본값)
+        display 속성 :  화면에 출력되는 방법을 정의, block, inline, inline-block, flex, grid ...
+           none : 화면에 보이지 않도록 설정, 자신의 영역도 없어짐. 
+    -->
+    <div class="v1">
+        <img src="./img/img/pic1.jpg" alt="이미지">
+    </div>
+    <div class="v2">
+        <img src="./img/img/pic2.jpg" alt="이미지">
+    </div>
+    <div class="v3">
+        <img src="./img/img/pic3.jpg" alt="이미지">
+    </div>
+    <div class="v4">
+        <img src="./img/img/pic1.jpg" alt="이미지">
+    </div>
+</body>
+</html>

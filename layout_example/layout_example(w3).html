@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>레이아웃 예시</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    header, footer {
+      background-color: #ccc;
+      padding: 10px;
+    }
+    main {
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
+    }
+    .left-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 20%;
+    }
+    .center-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 10px;
+    }
+    .right-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 25%;
+    }
+    section, div, ul {
+      background-color: #eee;
+      padding: 10px;
+      border: 1px solid #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>로고</div>
+    <div>메뉴바</div>
+    <div>서브메뉴</div>
+  </header>
+
+  <main>
+    <aside class="left-sidebar">
+      <section>사이드1</section>
+      <section>사이드2</section>
+    </aside>
+
+    <div class="center-content">
+      <section>메인 콘텐츠</section>
+      <div>하단 콘텐츠1</div>
+      <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+      </ul>
+    </div>
+
+    <div class="right-content">
+      <div>오른쪽 상단</div>
+      <section>오른쪽 하단</section>
+    </div>
+  </main>
+
+  <footer>
+    <div>푸터 콘텐츠</div>
+  </footer>
+</body>
+</html>
