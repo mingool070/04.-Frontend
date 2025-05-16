@@ -1,11 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .wrap {
+            width: 1200px;
+            height: 3000px;
+            margin: 0 auto;
+        }
+
+        section,
+        div,
+        ul,
+        .left-sidebar {
+            padding: 0px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            padding: 10px;
+        }
+
+        .logo {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu,
+        .submenu {
+            padding: 10px;
+            flex: 1;
+        }
+
+        .menu {
+            margin-left: 500px;
+        }
+
+        .background {
+            background-image: url('./img/main_menu_bg.png');
+            background-repeat: no-repeat;
+            height: 40px;
+        }
+
+        .login-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .bottom-buttons {
+            position: absolute;
+            margin-top: 130px;
+            margin-left: 50px;
+        }
+
+        .bottom-buttons {
+            position: absolute;
+            margin-top: 130px;
+            margin-left: 50px;
+        }
+
+        #a1 {
+            margin: 38px;
+        }
+
+        .left-sidebar {
+            flex-direction: column;
+            gap: 10px;
+            width: 400px;
+            height: 800px;
+            float: left;
+        }
+
+        .inputs {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #i1 {
+            margin-left: 80px;
+            height: 200px;
+            width: 300px;
+            background-color: #F3F3F3;
+            border-radius: 10px;
+        }
+
+        .c1 {
+            margin-top: 60px;
+        }
+
+        .submenutext {
+            list-style-position: inside;
+            background-image: url('./img/sub_menu_bg.png');
+            background-repeat: no-repeat;
+            width: 200px;
+            height: 335px;
+            margin-left: 100px;
+            text-align: center;
+        }
+
+        .leftimages {
+            text-align: center;
+        }
+
+        .freeboard {
+            width: 790px;
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 1px solid black;
+        }
+
+        .content-title {
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .submain {
+            display: flex;
+            width: 780px;
+        }
+
+        .search {
+            height: 30px;
+            margin-left: 10px;
+        }
+
+        .inputtext {
+            width: 23%;
+            height: 30px;
+        }
+
+        #title {
+            height: 23px;
+        }
+
+        .nu5 {
+            height: 30px;
+            margin-right: 190px;
+        }
+
+        .text5 {
+            display: flex;
+            background-color: #EEEEEE;
+        }
+
+        .titletext {
+            width: 500px;
+            text-align: center;
+        }
+
+        .writer {
+            width: 80px;
+            text-align: center;
+        }
+
+        .date {
+            width: 80px;
+            text-align: center;
+        }
+
+        .hitstext {
+            width: 80px;
+            text-align: center;
+        }
+
+        .gift {
+            text-align: center;
+            display: flex;
+        }
+
+        .gas {
+            width: 500px;
+        }
+
+        .one {
+            width: 30px;
+        }
+
+        .rubato {
+            width: 80px;
+        }
+
+        .fifteen {
+            width: 77px;
+        }
+        .next {
+            width: 615px;
+            text-align: center;
+        }
+        .before {
+            display: flex;
+        }
+        .f,
+    .b,
+    .t {
+      width: 30px;
+    }
+
+    .footerphotos {
+      width: 100px;
+      display: flex;
+    }
+
+    .footerrubato {
+      margin-left: 200px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .footertext {
+      width: 580px;
+    }
+
+    .footer {
+      display: flex;
+    }
+    </style>
 </head>
+
 <body>
-    <img src="./MP05_1_index.html.png">
+    <div class="wrap">
+        <header>
+            <div class="logo"><img src="./img/logo.png"></div>
+            <div class="header-right">
+                <div class="menu">HOME | LOGIN | JOIN | NOTICE</div>
+                <div class="submenu">
+                    <div class="background">
+                        <a id="a1">자유 게시판</a>
+                        <a id="a1">기타 연주</a>
+                        <a id="a1">공동구매</a>
+                        <a id="a1">연주회 안내</a>
+                        <a id="a1">회원 게시판</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <aside class="left-sidebar">
+                <section id="i1" class="login-container">
+                    <div class="inputs">
+                        <img src="./img/ttl_login.png"><br>
+                        <input type="text" placeholder><br>
+                        <input type="password" placeholder>
+                    </div>
+                    <div class="c1">
+                        <img src="./img/btn_login.gif">
+                    </div>
+                    <div class="bottom-buttons">
+                        <img src="./img/btn_join.gif">
+                        <img src="./img/btn_search.gif">
+                    </div>
+                </section>
+                <ul class="submenutext">
+                    <br><br><br>
+                    <li id="subtext">자유게시판</li><br>
+                    <li id="subtext">방명록</li><br>
+                    <li id="subtext">공지사항</li><br>
+                    <li id="subtext">등업요청</li><br>
+                    <li id="subtext">포토갤러리</li>
+                </ul>
+                <div class="leftimages">
+                    <img src="./img/banner1.png"><br>
+                    <img src="./img/banner2.png"><br>
+                    <img src="./img/banner3.png">
+                </div>
+            </aside>
+            <div class="content-title">
+                <img src="./img/comm.gif">
+                <div class="freeboard">자유게시판</div>
+                <div class="submain">
+                    <img src="./img/play.png" height="30px">
+                    <div class="nu5">총 5개의 게시물이 있습니다.</div>
+                    <img src="./img/select_search.gif" height="23px" width="50px">
+
+                    <select name="title" id="title">
+                        <option value="title">제목</option>
+                    </select>
+                    <div class="inputtext">
+                        <input type="text">
+                    </div>
+                    <div class="search">
+                        <img src="./img/search_button.gif">
+                    </div>
+                </div>
+                <div class="text5">
+                    <div>번호</div>
+                    <div class="titletext">제목</div>
+                    <div class="writer">글쓴이</div>
+                    <div class="date">일시</div>
+                    <div class="hitstext">조회수</div>
+                </div>
+                <div class="gift">
+                    <div class="one">
+                        1
+                    </div>
+                    <div class="gas">
+                        까스릉님의 선물인 보드카가 정말 독하네요!!!
+                    </div>
+                    <div class="rubato">
+                        루바토
+                    </div>
+                    <div>
+                        2017-09-20
+                    </div>
+                    <div class="fifteen">
+                        15
+                    </div>
+                </div>
+                <div class="gift">
+                    <div class="one">
+                        1
+                    </div>
+                    <div class="gas">
+                        까스릉님의 선물인 보드카가 정말 독하네요!!!
+                    </div>
+                    <div class="rubato">
+                        루바토
+                    </div>
+                    <div>
+                        2017-09-20
+                    </div>
+                    <div class="fifteen">
+                        15
+                    </div>
+                </div>
+                <div class="gift">
+                    <div class="one">
+                        1
+                    </div>
+                    <div class="gas">
+                        까스릉님의 선물인 보드카가 정말 독하네요!!!
+                    </div>
+                    <div class="rubato">
+                        루바토
+                    </div>
+                    <div>
+                        2017-09-20
+                    </div>
+                    <div class="fifteen">
+                        15
+                    </div>
+                </div>
+                <div class="before">
+                    <div class="next">
+                    ◀ 이전 1 다음 ▶
+                    </div>
+                    <img src="./img/list.png" width="80px" height="30px">
+                    <img src="./img/write.png" width="85px" height="30px">
+                </div>
+            </div>
+        </div>
+
+        <br> <br>
+    <hr>
+    <div class="footer">
+      <div class="footerrubato">
+        <img src="./img/logo_footer.gif">
+      </div>
+      <div class="footertext">
+        서울시 강남구 상섬동 1234 우 : 123-1234 <br> TEL : 031-123-1234 Email : email@domain.com
+        <br> COPYRIHGHT (C) 루바토 ALL RIGHTS RESERVED
+      </div>
+      <div class="footerphotos">
+        <div class="f">
+          <img src="./img/facebook.gif">
+        </div>
+        <div class="b">
+          <img src="./img/blog.gif">
+        </div>
+        <div class="t">
+          <img src="./img/twitter.gif">
+        </div>
+      </div>
+    </div>
+    </div>
 </body>
-</html>
+
+</html>       
+
+
+                
+            
