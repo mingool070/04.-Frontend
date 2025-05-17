@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>루바토 보드리스트</title>
+    <title>루바토 보드 뷰</title>
     <style>
         body {
             margin: 0;
@@ -21,6 +20,7 @@
         div,
         ul,
         .left-sidebar {
+            
             padding: 0px;
         }
 
@@ -30,7 +30,6 @@
             align-items: stretch;
             padding: 10px;
         }
-
         .logo {
             width: 30%;
             display: flex;
@@ -59,13 +58,6 @@
             align-items: flex-start;
             gap: 10px;
         }
-
-        .bottom-buttons {
-            position: absolute;
-            margin-top: 130px;
-            margin-left: 50px;
-        }
-
         #a1 {
             margin: 38px;
         }
@@ -91,7 +83,6 @@
             background-color: #F3F3F3;
             border-radius: 10px;
         }
-
         .c1 {
             margin-top: 60px;
         }
@@ -109,7 +100,22 @@
         .leftimages {
             text-align: center;
         }
-
+        .content-title {
+            height: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .inputs {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .bottom-buttons {
+            position: absolute;
+            margin-top: 130px;
+            margin-left: 50px;
+        }
         .freeboard {
             width: 790px;
             margin-top: 10px;
@@ -117,98 +123,38 @@
             font-weight: bold;
             border-bottom: 1px solid black;
         }
-
-        .content-title {
-            height: 800px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        .toxic {
+            width: 540px;
         }
-
         .submain {
-            display: flex;
-            width: 780px;
-        }
-
-        .search {
-            height: 30px;
-            margin-left: 10px;
-        }
-
-        .inputtext {
-            width: 23%;
-            height: 30px;
-        }
-
-        #title {
-            height: 23px;
-        }
-
-        .nu5 {
-            height: 30px;
-            margin-right: 190px;
-        }
-
-        .text5 {
             display: flex;
             background-color: #EEEEEE;
         }
-
-        .titletext {
-            width: 500px;
-            text-align: center;
-        }
-
-        .writer {
-            width: 80px;
-            text-align: center;
-        }
-
-        .date {
-            width: 80px;
-            text-align: center;
-        }
-
-        .hitstext {
-            width: 80px;
-            text-align: center;
-        }
-
-        .gift {
-            border-bottom: 1px solid gray;
-            text-align: center;
+        .comments {
+            border-top: 1px solid black;
+            margin-top: 10px;
             display: flex;
+            width: 780px;
+            height: 130px;
+            background-color: #EEEEEE;
         }
-
-        .gas {
-            width: 500px;
+        .dut {
+            margin-left: 40px;
+            align-content: center;
         }
-
-        .one {
-            width: 30px;
+        #area {
+            height: 80px;
+            margin-left: 30px;
         }
-
-        .rubato {
-            width: 80px;
+        .areacenter {
+            align-content: center;
         }
-
-        .fifteen {
-            width: 77px;
-        }
-        .next {
-            width: 615px;
-            text-align: center;
-        }
-        .before {
-            display: flex;
-        }
-        .f,
-    .b,
-    .t {
-      width: 30px;
-    }
-
-    .footerphotos {
+        .imagesthree { 
+            margin-top: 20px;
+            text-align: right;
+            width: 780px;
+        } 
+        .footerphotos {
       width: 100px;
       display: flex;
     }
@@ -226,9 +172,13 @@
     .footer {
       display: flex;
     }
+    .f,
+    .b,
+    .t {
+      width: 30px;
+    }
     </style>
 </head>
-
 <body>
     <div class="wrap">
         <header>
@@ -281,88 +231,38 @@
                 <img src="./img/comm.gif">
                 <div class="freeboard">자유게시판</div>
                 <div class="submain">
-                    <img src="./img/play.png" height="30px">
-                    <div class="nu5">총 5개의 게시물이 있습니다.</div>
-                    <img src="./img/select_search.gif" height="23px" width="50px">
-
-                    <select name="title" id="title">
-                        <option value="title">제목</option>
-                    </select>
-                    <div class="inputtext">
-                        <input type="text">
-                    </div>
-                    <div class="search">
-                        <img src="./img/search_button.gif">
-                    </div>
-                </div>
-                <div class="text5">
-                    <div>번호</div>
-                    <div class="titletext">제목</div>
-                    <div class="writer">글쓴이</div>
-                    <div class="date">일시</div>
-                    <div class="hitstext">조회수</div>
-                </div>
-                <div class="gift">
-                    <div class="one">
-                        1
-                    </div>
-                    <div class="gas">
+                    <div class="toxic">
                         까스릉님의 선물인 보드카가 정말 독하네요!!!
                     </div>
-                    <div class="rubato">
-                        루바토
-                    </div>
                     <div>
-                        2017-09-20
-                    </div>
-                    <div class="fifteen">
-                        15
+                        루바토|조회:208|2016-04-28(09:20)
                     </div>
                 </div>
-                <div class="gift">
-                    <div class="one">
-                        1
+                <div>
+                    <br>
+                    까스릉님 고맙습니다. <br>
+                    까스릉님 고맙습니다. <br>
+                    까스릉님 고맙습니다. <br>
+                    까스릉님 고맙습니다. <br>
+                </div>
+                <div class="comments">
+                    <div class="commentimage">
+                        <br>
+                    <img src="./img/title_comment.gif">
                     </div>
-                    <div class="gas">
-                        까스릉님의 선물인 보드카가 정말 독하네요!!!
+                    <div class="areacenter">
+                    <textarea id="area" name="opinion" cols="70" rows="5"></textarea>
                     </div>
-                    <div class="rubato">
-                        루바토
-                    </div>
-                    <div>
-                        2017-09-20
-                    </div>
-                    <div class="fifteen">
-                        15
+                    <div class="dut">
+                    <img src="./img/ok_ripple.gif" width="60px" height="100px">
                     </div>
                 </div>
-                <div class="gift">
-                    <div class="one">
-                        1
-                    </div>
-                    <div class="gas">
-                        까스릉님의 선물인 보드카가 정말 독하네요!!!
-                    </div>
-                    <div class="rubato">
-                        루바토
-                    </div>
-                    <div>
-                        2017-09-20
-                    </div>
-                    <div class="fifteen">
-                        15
-                    </div>
-                </div>
-                <div class="before">
-                    <div class="next">
-                    ◀ 이전 1 다음 ▶
-                    </div>
-                    <img src="./img/list.png" width="80px" height="30px">
-                    <img src="./img/write.png" width="85px" height="30px">
+                <div class="imagesthree">
+                    <img src="./img/delete.png">
+                    <img src="./img/list.png">
+                    <img src="./img/write.png">
                 </div>
             </div>
-        </div>
-
         <br> <br>
     <hr>
     <div class="footer">
@@ -385,11 +285,5 @@
         </div>
       </div>
     </div>
-    </div>
 </body>
-
-</html>       
-
-
-                
-            
+</html>
