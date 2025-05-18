@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,6 @@
         div,
         ul,
         .left-sidebar {
-            
             padding: 0px;
         }
 
@@ -30,6 +30,7 @@
             align-items: stretch;
             padding: 10px;
         }
+
         .logo {
             width: 30%;
             display: flex;
@@ -58,6 +59,7 @@
             align-items: flex-start;
             gap: 10px;
         }
+
         #a1 {
             margin: 38px;
         }
@@ -83,6 +85,7 @@
             background-color: #F3F3F3;
             border-radius: 10px;
         }
+
         .c1 {
             margin-top: 60px;
         }
@@ -100,31 +103,139 @@
         .leftimages {
             text-align: center;
         }
+
         .content-title {
             height: 800px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
+
         .inputs {
             width: 200px;
             display: flex;
             flex-direction: column;
         }
+
         .bottom-buttons {
             position: absolute;
             margin-top: 130px;
             margin-left: 50px;
         }
+
         .freeboard {
             width: 790px;
             margin-top: 10px;
             font-size: 16px;
             font-weight: bold;
+        }
+
+        .writing {
+            width: 790px;
+            height: 35px;
+            background-color: #EEEEEE;
+            text-align: center;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+        }
+
+        .nametext {
+            display: flex;
+        }
+
+        .name {
+            width: 150px;
+            height: 35px;
+            text-align: center;
+            border-right: 1px solid black;
             border-bottom: 1px solid black;
         }
+
+        .ntext {
+            width: 630px;
+            height: 35px;
+            padding-left: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        #titletext {
+            width: 580px;
+        }
+
+        .cont {
+            width: 150px;
+            height: 300px;
+            text-align: center;
+            align-content: center;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        .contenttext {
+            width: 610px;
+            padding-left: 13px;
+            align-content: center;
+            border-bottom: 1px solid black;
+        }
+
+        #contenttext {
+            width: 580px;
+            height: 270px;
+        }
+
+        #upload {
+            width: 250px;
+        }
+
+        .choice {
+
+            background-color: #EEEEEE;
+            border: 1px solid black;
+        }
+
+        #up {
+            width: 150px;
+        }
+
+        #uplo {
+            width: 265px;
+        }
+
+        .nochoice {
+            width: 300px;
+            height: 35px;
+            border-bottom: 1px solid black;
+        }
+        .footerphotos {
+      width: 100px;
+      display: flex;
+    }
+
+    .footerrubato {
+      margin-left: 200px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .footertext {
+      width: 580px;
+    }
+
+    .footer {
+      display: flex;
+    }
+    .f,
+    .b,
+    .t {
+      width: 30px;
+    }
+    .final {
+        display: flex;
+        margin-left: 1080px;
+    }
     </style>
 </head>
+
 <body>
     <div class="wrap">
         <header>
@@ -133,7 +244,7 @@
                 <div class="menu">HOME | LOGIN | JOIN | NOTICE</div>
                 <div class="submenu">
                     <div class="background">
-                        <a id="a1">자유 게시판</a>
+                        <a href="board_list.html" id="a1">자유 게시판</a>
                         <a id="a1">기타 연주</a>
                         <a id="a1">공동구매</a>
                         <a id="a1">연주회 안내</a>
@@ -173,8 +284,83 @@
                     <img src="./img/banner3.png">
                 </div>
             </aside>
-            <div class="content-title">
+                <div class="content-title">
                 <img src="./img/comm.gif">
-                <div class="freeboard">자유게시판</div>
+                
+                <div class="freeboard">자유게시판</div><br>
+                <div class="writing">
+                    글쓰기
+                </div>
+                <div class="nametext">
+                    <div class="name">
+                        이름
+                    </div>
+                    <div class="ntext">
+                        <input type="text" placeholder>
+                    </div>
+                </div>
+                <div class="nametext">
+                    <div class="name">
+                        제목
+                    </div>
+                    <div class="ntext">
+                        <input id="titletext" type="text" placeholder>
+                    </div>
+                </div>
+                <div class="nametext">
+                    <div class="cont">
+                        내용
+                    </div>
+                    <div class="contenttext">
+                        <textarea id="contenttext"></textarea>
+                    </div>
+                </div>
+                <div class="nametext">
+                    <div class="name" id="up">
+                        업로드 파일
+                    </div>
+                    <div class="ntext" id="uplo">
+                        <input id="upload" type="text" placeholder>
+                    </div>
+                    <div class="choice">
+                        파일선택
+                    </div>
+                    <div class="nochoice">
+                        선택된 파일 없음
+                    </div>
+                </div>
+            </div>
+          <div class="final">   
+            <div>
+                <img src="./img/ok.png">
+            </div>
+            <div>
+                <img src="./img/list.png">
+            </div>
+          </div>
+            <br> <br> <hr>
+             <div class="footer">
+      <div class="footerrubato">
+        <img src="./img/logo_footer.gif">
+      </div>
+      <div class="footertext">
+        서울시 강남구 상섬동 1234 우 : 123-1234 <br> TEL : 031-123-1234 Email : email@domain.com
+        <br> COPYRIHGHT (C) 루바토 ALL RIGHTS RESERVED
+      </div>
+      <div class="footerphotos">
+        <div class="f">
+          <img src="./img/facebook.gif">
+        </div>
+        <div class="b">
+          <img src="./img/blog.gif">
+        </div>
+        <div class="t">
+          <img src="./img/twitter.gif">
+        </div>
+      </div>
+    </div>
+        </div>
+    </div>
 </body>
+
 </html>
