@@ -46,3 +46,9 @@ li {
 #if1 {
     padding-left: 120px;
 }
+.clear{
+    clear: both;
+}
+.cakeimage {
+    margin-left: 320px;
+}
