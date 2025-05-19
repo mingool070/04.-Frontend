@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;  /* 부모를 기준으로 위치이동, 자신의 영역이 없어짐 */
+            width: 20px; height: 20px; border-radius: 10px; /* 원 생성 */
+            background-color: red;
+            animation: bounce 10s infinite ;
+        }
+        @keyframes bounce {
+            from, to {bottom: 0px; animation-timing-function: ease-out;}
+            50% {bottom: 200px ; animation-timing-function: ease-in;}
+        }
+        #b1 {left: 10px; animation-duration: 5s;}
+        #b2 {left:50px; background-color: blue; animation-duration: 10s;}
+        #b3 {left:90px; background-color: green; animation-duration: 3s;}
+        #b4 {left:130px; background-color: silver; animation-duration: 8s;}
+        #b5 {left:170px; background-color: black; animation-duration: 7s;}
+    </style>
+</head>
+<body>
+    <!-- 애니 메이션을 활용한 점핑볼 만들기 -->
+    <div id="b1"></div>
+    <div id="b2"></div>
+    <div id="b3"></div>
+    <div id="b4"></div>
+    <div id="b5"></div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .wrap {
+            padding: 20px;
+            background-color: #F2F4F8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .who {
+            padding: 20px;
+            display: flex;
+            width: calc(33.33% - 14px);
+            border-radius: 30px;
+            background-color: white;
+            overflow: hidden;
+        }
+        
+        .image-container {
+            flex: 0 0 auto;
+            margin-right: 10px;
+            width: 45%;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .text-container h2 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 1.3;
+        }
+        
+        .text-container p {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        /* 미디어 쿼리 수정 */
+        @media screen and (max-width: 900px) {
+            .who {
+                width: calc(50% - 10px);
+            }
+        }
+        
+        @media screen and (max-width: 600px) {
+            .wrap {
+                flex-direction: column;
+            }
+            
+            .who {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .image-container {
+                width: 35%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- max-width : 600px 일때 이미지를 하단으로 떨어뜨림 -->
+    <div class="wrap">
+     <div class="who">
+        <div class="image-container">
+        <img src="./img/fox-in-suit.png" width="300px">
+        </div>
+        <div class="text-container">
+            <h2>모든 웹사이트를 누<br>가 호스팅하는지 찾<br>으십시오</h2>
+            <p>웹사이트의 URL을 입력하여 <br> 어떤 호스팅 서비스를 시용하<br>는지 알아보십시오</p>
+        </div>
+     </div>
+     <div class="who">
+        <div class="image-container">
+        <img src="./img/fox-with-horn.png" width="300px">
+        </div>
+        <div class="text-container">
+            <h2>시장 점유율 2021</h2>
+            <p>국가별로 나뉜 각 호스팅 회<br>사의 2021 시장 점유율을 살<br>펴보십시오</p>
+        </div>
+     </div>
+     <div class="who">
+        <div class="image-container">
+        <img src="./img/fox-with-server.png" width="300px">
+        </div>
+        <div class="text-container">
+            <h2>웹 호스팅의 일대일 비교교</h2>
+            <p>3 개까지의 웹 호스팅 회사를 간단히 비교하고 어느 것이 더 나은지 보십시오</p>
+        </div>
+     </div>
+    </div>
+</body>
+</html>
