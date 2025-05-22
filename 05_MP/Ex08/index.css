@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div {
+    border: 1px solid black;
+}
+
+.wrap {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F2F0F0;
+}
+
+.headerimages {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.green-text {
+    color: green;
+}
+
+.line {
+    
+}

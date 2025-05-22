@@ -80,3 +80,14 @@ th {
 .underline {
     text-decoration: underline;
 }
+.more {
+    background-color: #DDDDDD;
+    text-align: center;
+    align-content: center;
+    height: 50px;
+}
+.mobile {
+    text-align: center;
+    align-content: center;
+    height: 50px;
+}

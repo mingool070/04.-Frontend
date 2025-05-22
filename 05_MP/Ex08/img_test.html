@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./MP03_1_index.html (detail_01).png" width="100%">
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAYUN ART</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .wrap {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #F2F0F0;
+            min-height: 100vh;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: #F2F0F0;
+            padding: 10px 0;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #8BC34A;
+        }
+
+        .logo .art-text {
+            color: #666;
+        }
+
+        .search-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .search-label {
+            font-size: 12px;
+            color: #666;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        .search-input-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            width: 200px;
+            height: 25px;
+            border: 1px solid #ccc;
+            padding: 0 10px;
+            font-size: 11px;
+        }
+
+        .search-btn {
+            width: 50px;
+            height: 25px;
+            background-color: #8BC34A;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 11px;
+        }
+
+        .nav-section a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .green-text {
+            color: #8BC34A;
+        }
+
+        .nav-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* 메인 컨텐츠 영역 */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            min-height: 500px;
+        }
+
+        /* 네비게이션 메뉴 */
+        .main-nav {
+            background-color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .main-nav li {
+            margin: 0 20px;
+        }
+
+        .main-nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .main-nav a:hover {
+            background-color: #45a049;
+        }
+
+        /* 컨텐츠 영역 */
+        .content-area {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 20px;
+        }
+
+        .main-content {
+            background-color: #fafafa;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .sidebar {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .sidebar h3 {
+            color: #8BC34A;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin: 5px 0;
+            font-size: 11px;
+        }
+
+        .sidebar a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            color: #8BC34A;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #333;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            margin-top: 40px;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .content-area {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-section {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">DAYUN <span class="art-text">ART</span></div>
+                </div>
+                
+                <div class="search-section">
+                    <div class="search-label">SEARCH</div>
+                    <div class="search-input-area">
+                        <input type="text" class="search-box" placeholder="검색어를 입력하세요">
+                        <button class="search-btn">검색</button>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <a href="#" class="green-text">로그인</a>
+                    <a href="#" class="green-text">회원가입</a>
+                    <a href="#">마이페이지</a>
+                    <a href="#">이용안내</a>
+                    <a href="#">고객센터</a>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">홈</a></li>
+                    <li><a href="#">갤러리</a></li>
+                    <li><a href="#">작품소개</a></li>
+                    <li><a href="#">작가소개</a></li>
+                    <li><a href="#">전시회</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">커뮤니티</a></li>
+                </ul>
+            </nav>
+
+            <div class="content-area">
+                <div class="main-content">
+                    <h2>DAYUN ART에 오신 것을 환영합니다</h2>
+                    <p>다양한 예술 작품과 전시회 정보를 만나보세요.</p>
+                    <br>
+                    <p>이곳에는 메인 컨텐츠가 들어갈 예정입니다.</p>
+                    
+                    <!-- 이미지 갤러리 예시 -->
+                    <div style="margin-top: 30px;">
+                        <h3>최신 작품</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 15px;">
+                            <div style="text-align: center;">
+                                <img src="/api/placeholder/150/150" alt="작품1" style="width: 100%; border: 1px solid #ddd;">
+                                <p style="margin-top: 5px; font-size: 11px;">작품 제목 1</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="/api/placeholder/150/150" alt="작품2" style="width: 100%; border: 1px solid #ddd;">
+                                <p style="margin-top: 5px; font-size: 11px;">작품 제목 2</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="/api/placeholder/150/150" alt="작품3" style="width: 100%; border: 1px solid #ddd;">
+                                <p style="margin-top: 5px; font-size: 11px;">작품 제목 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <h3>카테고리</h3>
+                    <ul>
+                        <li><a href="#">회화</a></li>
+                        <li><a href="#">조각</a></li>
+                        <li><a href="#">사진</a></li>
+                        <li><a href="#">디지털아트</a></li>
+                        <li><a href="#">설치미술</a></li>
+                    </ul>
+
+                    <h3 style="margin-top: 20px;">최근 소식</h3>
+                    <ul>
+                        <li><a href="#">새로운 전시회 개최</a></li>
+                        <li><a href="#">작가 인터뷰</a></li>
+                        <li><a href="#">작품 할인 이벤트</a></li>
+                        <li><a href="#">갤러리 투어 안내</a></li>
+                    </ul>
+
+                    <h3 style="margin-top: 20px;">연락처</h3>
+                    <div style="font-size: 11px; line-height: 1.4;">
+                        <p>Tel: 02-1234-5678</p>
+                        <p>Email: info@dayunart.com</p>
+                        <p>주소: 서울시 강남구<br>예술로 123번길</p>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 DAYUN ART. All rights reserved.</p>
+            <p>서울시 강남구 예술로 123번길 | Tel: 02-1234-5678 | Email: info@dayunart.com</p>
+        </footer>
+    </div>
+</body>
+</html> -->
