@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F2F0F0;
+}
+
+.headerimages {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.green-text {
+    color: green;
+}
+.blue-text {
+    color: blue;
+}
+
+.search {
+    width: 400px;
+    display: flex;
+}
+
+.searchmid {
+    width: 100px;
+    border-bottom: 1px solid black;
+}
+
+.login {
+    display: flex;
+    gap: 15px;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.headerbottom {
+    padding: 20px;
+    background-color: #4E4C4D;
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+}
+
+.submenu {
+    color: white;
+}
+
+main {
+    padding: 80px;
+}
+
+.categoryul {
+    list-style: none;
+    border: 1px solid black;
+}
+
+.categorytext {
+    padding: 10px;
+    background-color: #96C11F;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.main1 {
+    display: flex;
+}
+
+.categorybox {
+    width: 15%;
+}
+
+.categoryul li {
+    padding: 12px 0;
+}
+
+.customer {
+    margin-top: 30px;
+    height: 150px;
+}
+
+.main1-2 {
+    padding: 20px;
+}
+.main1-2 {
+    width: 85%;
+}
+.pointtext {
+    font-size: larger;
+}
+.mainpre {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.mainproduct{
+    display: flex;
+}
+.mainproduct1 {
+    width: 40%;
+    
+}
+.mainproduct2 {
+    margin-left: 50px;
+    width: 50%;
+    
+}
+.maintable {
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 30px 10px;
+}
+
+.buyimages {
+    text-align: right;
+    margin: 20px;
+}
+.main2 {
+    margin-left: 250px;
+    padding: 20px;
+    width: 80%;
+}
+.Reference ul {
+    list-style: none;
+}
+.sectiontitle::before {
+    content: "o";
+    margin-right: 8px;
+    font-size: 12px;
+}
+.footer2 {
+    padding: 50px;
+    display: flex;
+}
+
+.footerlogo {
+    align-content: center;
+    width: 20%;
+}
+
+.address {
+    width: 60%;
+}
+
+.footerbanner {
+    align-content: center;
+    width: 20%;
+}
