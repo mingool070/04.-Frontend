@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {width: 420px; margin: 0 auto;}
+        .row li {
+            display: inline;
+        }
+        .row ul {
+            list-style: none; /* .없앰 */
+            margin: 0; padding: 0;
+        }
+        #lightbox {
+            position: fixed;          /* 자신의 자리가 없어짐 */
+            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+             display : none;         /* 처음 로딩시 출력되지 않도록 설정 */
+            background-color: rgb(0,0,0,0.7);
+        }
+        #lightbox img {
+            /* 이미지를 정 중앙에 배치치 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 작은 이미지 클릭시 모달창을 띄워서 큰 이미지 출력 -->
+    <div class="row">
+        <ul>
+            <li><img src="./images/tree-1-thumb.jpg" data-src="./images/tree-1.jpg" class="pic"></li>
+            <li><img src="./images/tree-2-thumb.jpg" data-src="./images/tree-2.jpg" class="pic"></li>
+            <li><img src="./images/tree-3-thumb.jpg" data-src="./images/tree-3.jpg" class="pic"></li>
+            <li><img src="./images/tree-4-thumb.jpg" data-src="./images/tree-4.jpg" class="pic"></li>
+            <li><img src="./images/tree-5-thumb.jpg" data-src="./images/tree-5.jpg" class="pic"></li>
+            <li><img src="./images/tree-6-thumb.jpg" data-src="./images/tree-6.jpg" class="pic"></li>
+        </ul>
+    </div>
+
+    <!-- 큰 이미지 출력 블락 : 기본 적으로는 display:none , 작은 이미지를 클릭시 출력 -->
+    <div id="lightbox">
+        <img src="./images/tree-1.jpg" alt="lightboxImages">
+    </div>
+
+
+    <script>
+        // 1. 작은 이미지를 클릭시 큰이미지를 출력 하도록 설정(display : block)
+        // 2. img 태그의 src 속성의 값을 변경 
+        let pics = document.getElementsByClassName('pic');
+            // pics[0], pics[1], pics[2], pics[3], pics[4], pics[5]
+        let lightbox = document.getElementById('lightbox');
+        let lightboxImage = document.getElementById('lightboxImage');
+
+        // pics 배열의 0 ~ 5번까지 중 하나를 클릭 시 작동 하는 이벤트 리스너
+        for (let i=0 ; i <pics.length ; i++) {
+            pics[i].addEventListener('click',showlightbox);
+        }
+
+        // 큰 이미지를 출력 하는 함수
+        function showlightbox() {
+            console. log("함수 호출 성공")
+            let bigLocation= this.setAttribute("data-src");
+            lightboxImage.setAttribute("src", bigLocation);
+            lightbox.style.display='block';
+        }
+
+        // 큰 이미지 출력시 배경을 클릭시 보이지 않도록 설정 (display:none)
+    </script>
+</body>
+</html>

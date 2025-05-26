@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #F2F0F0;
+}
+
+.headerimages {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.green-text {
+    color: green;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.search {
+    width: 400px;
+    display: flex;
+}
+
+.searchmid {
+    width: 100px;
+    border-bottom: 1px solid black;
+}
+
+.login {
+    display: flex;
+    gap: 15px;
+}
+
+.logo {
+    margin-left: 20px;
+}
+
+.headerbottom {
+    padding: 20px;
+    background-color: #4E4C4D;
+    display: flex;
+    gap: 150px;
+    justify-content: center;
+}
+
+.submenu {
+    color: white;
+}
+
+main {
+    padding: 80px;
+}
+
+.categoryul {
+    list-style: none;
+    border: 1px solid black;
+}
+
+.categorytext {
+    padding: 10px;
+    background-color: #96C11F;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.main1 {
+    display: flex;
+}
+
+.categorybox {
+    width: 15%;
+}
+
+.categoryul li {
+    padding: 12px 0;
+}
+
+.customer {
+    margin-top: 30px;
+    height: 150px;
+}
+
+.main1-2 {
+    width: 85%;
+    padding: 20px;
+}
+
+.carttext {
+    font-size: larger;
+}
+.thead-tr{
+    background-color: #E9E8E9;
+}
+.order-container {
+    border: 2px solid black;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.order-table {
+    width: 100%;
+}
+
+.order-table th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.order-table td {
+    border: 1p;
+}
+
+.product-name {
+    text-align: left;
+}
+
+.quantity-input {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+.total-section {
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.total-calculation {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.total-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #E9E8E9;
+    border: 1px solid black;
+}
+
+.total-right {
+    text-align: right;
+}
+
+.total-right div {
+    margin-bottom: 3px;
+}
+.final-total {
+    border-top: 1px solid black;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+.orderbuttons {
+    padding: 10px;
+    text-align: center;
+}
+.footer2 {
+    padding: 50px;
+    display: flex;
+}
+
+.footerlogo {
+    align-content: center;
+    width: 20%;
+}
+
+.address {
+    width: 60%;
+}
+
+.footerbanner {
+    align-content: center;
+    width: 20%;
+}
