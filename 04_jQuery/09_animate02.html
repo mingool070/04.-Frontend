@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CDN / 로컬 라이브러리 등록 및 기본 사용 구문</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        // jQuery 사용을 위한 기본 준비 코드 생성
+        $(document).ready(function(){
+            $('.move').click(function(){
+                $('img').animate(
+                    {left : '300px', 
+                     width: '300px',
+                     height: '300px'
+                    }
+                )
+            })
+            $('.init').click(function(){
+                $('img').animate(
+                    {
+                        left:'0',
+                        width: '130px',
+                        height:'100px'
+                    }
+                )
+            })
+           
+
+        })
+        
+    </script>
+    <style>
+        .wrap {width: 800px; height: 600px; margin: 0 auto; border: 1px solid red;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button class="move"> 확대 </button>
+        <button class="init"> 축소 </button>
+        <p></p>
+        <img src="./img/pic1.jpg" width="130px" height="100px" style="position: relative;">
+    </div>
+</body>
+</html>

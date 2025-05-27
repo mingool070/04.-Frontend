@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CDN / 로컬 라이브러리 등록 및 기본 사용 구문</title>
+
+    <script src="./js/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // jQuery 코드 블락
+
+           $('.toggle').click(function(){
+                console.log("클래스 추가 호출 성공 ")
+                $('h1, h2, p').toggleClass('blue');
+                $('p').toggleClass('important');
+           })
+
+           
+
+        })
+
+    </script>
+    <style>
+        .wrap {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        /* 태그에 적용할 스타일을 정의 */
+        .important { font-weight: bold; font-size: xx-large;}
+        .blue{color: blue;}
+
+    </style>
+</head>
+
+<body>
+    <!--     
+    -->
+    <div class="wrap">
+        <h1> HTML5 </h1>
+        <h2> CSS3 </h2>
+        <div> JavaScript (ES6) </div>
+        <p> jQuery </p>
+
+
+        <button class="toggle"> CSS 적용/제거 </button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CDN / 로컬 라이브러리 등록 및 기본 사용 구문</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('.b1').click(function () {
+                console.log("함수 호출 성공")
+                $('img').animate(
+                    { width: '100px' }
+                )
+            })
+            $('.b2').click(function () {
+                $('img').animate(
+                    { width: '200px' }
+                )
+            })
+            $('.b3').click(function () {
+                $('img').animate(
+                    { width: '300px' }
+                )
+            })
+
+        })
+
+    </script>
+    <style>
+        .css_pic {
+            width: 350px;
+            text-align: center;
+            border: 1px solid red;
+            margin: 0 auto;
+        }
+
+        .css_pic img {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="css_pic">
+        버튼을 클릭하면 그림의 크기가 바뀝니다. <br>
+        <button class="b1"> 가로 100픽셀 </button>
+        <button class="b2"> 가로 200픽셀 </button>
+        <button class="b3"> 가로 300픽셀 </button>
+        <img name="pic1" src="./img/pic1.jpg">
+    </div>
+</body>
+
+</html>

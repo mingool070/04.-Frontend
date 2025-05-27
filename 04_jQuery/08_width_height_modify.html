@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CDN 으로 라이브러리 등록 및 기본 사용 구문</title>
+    <script src="./js/jquery-3.7.1.slim.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+                let xwidth = 100;
+                let yheight = 100;
+            $('div').click(function () {
+                
+                $(this).width(xwidth).addClass('box');
+                $(this).height(yheight).addClass('box');
+                xwidth = xwidth - 10;
+                yheight = yheight - 10;
+            })
+
+        })
+
+    </script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 5px;
+            float: left;
+        }
+
+        .box {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div>박스1</div>
+    <div>박스2</div>
+    <div>박스3</div>
+    <div>박스4</div>
+    <div>박스5</div>
+</body>
+
+</html>

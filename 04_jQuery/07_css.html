@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CDN / 로컬 라이브러리 등록 및 기본 사용 구문문 </title>
+
+    <script src="./js/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        // jQuery 사용을 위한 기본 준비 코드 생성 
+        $(document).ready(function () {
+
+            // 버튼을 클릭시 이름에 배경색 추가 
+            $('button').click(function () {
+                $('p').css({
+                    'width': '100px', 'height': '50px',
+                    'background-color': 'yellow', 'font-size': '200%'
+                });
+            })
+
+
+        })
+
+    </script>
+    <style>
+        .wrap{width:50%; margin:0 auto ; }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    -->
+    <div class="wrap">
+        <p> 김 길동 </p>
+        <div> 02-1234-6789</div>
+        <p> 이 길동 </p>
+        <div> 02-1234-6789</div>
+        <p> 홍 길동 </p>
+        <div> 02-1234-6789</div>
+        <br><br>
+        <button> 이름 강조 </button>
+    </div>
+</body>
+
+</html>
