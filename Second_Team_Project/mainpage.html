@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라면로드 - 새로운 라면의 시대</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-bar {
+            background: #f8f8f8;
+            padding: 5px 0;
+            font-size: 12px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .top-bar a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .main-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #e63312;
+            text-decoration: none;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 50px 12px 15px;
+            border: 2px solid #e63312;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 45px;
+            background: #e63312;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .user-menu {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .user-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cart-icon {
+            background: #e63312;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b00;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: white;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-btn {
+            background: #e63312;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e63312;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+
+        /* Banner Section */
+        .banner-section {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .main-banner {
+            height: 400px;
+            background: linear-gradient(135deg, #e63312, #ff6b00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            text-align: center;
+            z-index: 2;
+        }
+
+        .banner-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .banner-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .banner-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Product Grid */
+        .product-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #e63312;
+            padding-bottom: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 180px;
+            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e63312;
+            margin-bottom: 5px;
+        }
+
+        .product-rating {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .quick-menu {
+            list-style: none;
+        }
+
+        .quick-menu li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .quick-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .quick-menu a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .quick-menu a:hover {
+            color: #e63312;
+        }
+
+        .ad-banner {
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b00, #e63312);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: #ccc;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 10px;
+            }
+            
+            .main-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-container {
+                margin: 0;
+                max-width: none;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+            <a href="#">고객센터</a>
+        </div>
+        
+        <div class="main-header">
+            <a href="./mainpage.html" class="logo">🍜 라면로드</a>
+            
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="검색어를 입력하세요">
+                <button class="search-btn">🔍</button>
+            </div>
+            
+            <div class="user-menu">
+                <a href="#">내정보</a>
+                <a href="#">주문배송</a>
+                <a href="#" class="cart-icon">
+                    🛒
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav class="nav-bar">
+            <div class="nav-container">
+                <button class="category-btn">📋 전체 카테고리</button>
+                <div class="nav-links">
+                    <a href="./Domesticproduct.html">상품</a>
+                    <a href="#">도구</a>
+                    <a href="#">소개</a>
+                    <a href="#">패키지</a>
+                    <a href="#">신메뉴</a>
+                    <a href="#">인기</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <main>
+            <!-- Banner Section -->
+            <section class="banner-section">
+                <div class="main-banner">
+                    <div class="banner-content">
+                        <div class="banner-title">특가 세일</div>
+                        <div class="banner-subtitle">최대 80% 할인 혜택</div>
+                    </div>
+                    <div class="banner-decoration"></div>
+                </div>
+            </section>
+
+            <!-- Product Section -->
+            <section class="product-section">
+                <h2 class="section-title">🔥 인기 상품</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image"><img src="./img/fire.jpg" height="90%"></div>
+                        <div class="product-info">
+                            <div class="product-name">불닭볶음면 140g (20개)</div>
+                            <div class="product-price">17,750원</div>
+                            <div class="product-rating">⭐⭐⭐⭐⭐ (128)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image"><img src="./img/Carbonara.jpg" height="90%"></div>
+                        <div class="product-info">
+                            <div class="product-name">까르보불닭 130g, (8개)</div>
+                            <div class="product-price">10,160원</div>
+                            <div class="product-rating">⭐⭐⭐⭐⭐ (203)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image"><img src="./img/Migoreng.jpg" height="90%"></div>
+                        <div class="product-info">
+                            <div class="product-name">인도네시아-미고랭, (20개)</div>
+                            <div class="product-price">10,070원</div>
+                            <div class="product-rating">⭐⭐⭐⭐☆ (89)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image"><img src="./img/Nissin.jpg" height="90%"></div>
+                        <div class="product-info">
+                            <div class="product-name">일본-닛신 돈베이 키츠네 유부우동 95g, (12개)</div>
+                            <div class="product-price">26,000원</div>
+                            <div class="product-rating">⭐⭐⭐⭐☆ (78)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image"><img src="./img/Laksa.jpg" height="90%"></div>
+                        <div class="product-info">
+                            <div class="product-name">싱가포르-락사 185g (6개)</div>
+                            <div class="product-price">16.590원</div>
+                            <div class="product-rating">⭐⭐⭐⭐☆ (85)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image"><img src="./img/HaoHao.jpg" height="90%"></div>
+                        <div class="product-info">
+                            <div class="product-name">베트남-하오하오 77g, (1개)</div>
+                            <div class="product-price">480원</div>
+                            <div class="product-rating">⭐⭐⭐⭐☆ (67)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="ad-banner">
+                <div>🎁 신규회원<br>10% 할인쿠폰</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>빠른 메뉴</h3>
+                <ul class="quick-menu">
+                    <li><a href="#">주문/배송조회</a></li>
+                    <li><a href="#">취소/반품</a></li>
+                    <li><a href="#">쿠폰함</a></li>
+                    <li><a href="#">적립금</a></li>
+                    <li><a href="#">1:1 문의</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>인기 카테고리</h3>
+                <ul class="quick-menu">
+                    <li><a href="#">매운맛</a></li>
+                    <li><a href="#">순한맛</a></li>
+                    <li><a href="#">해외상품</a></li>
+                    <li><a href="#">라면의류</a></li>
+                    <li><a href="#">라면가방</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>고객센터</h3>
+                <ul>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">자주묻는질문</a></li>
+                    <li><a href="#">1:1 문의</a></li>
+                    <li><a href="#">상품문의</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>회사정보</h3>
+                <ul>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">채용정보</a></li>
+                    <li><a href="#">제휴문의</a></li>
+                    <li><a href="#">광고문의</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>이용약관</h3>
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">청소년보호정책</a></li>
+                    <li><a href="#">분쟁조정</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>SNS</h3>
+                <ul>
+                    <li><a href="#">페이스북</a></li>
+                    <li><a href="#">인스타그램</a></li>
+                    <li><a href="#">유튜브</a></li>
+                    <li><a href="#">블로그</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 간단한 상호작용 기능
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-box').value;
+            if (searchTerm.trim()) {
+                alert('검색어: ' + searchTerm);
+            }
+        });
+
+        document.querySelector('.search-box').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm.trim()) {
+                    alert('검색어: ' + searchTerm);
+                }
+            }
+        });
+
+        // 상품 카드 클릭 이벤트
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const productName = this.querySelector('.product-name').textContent;
+                alert('상품 상세페이지: ' + productName);
+            });
+        });
+
+        // 카테고리 버튼 클릭 이벤트
+        document.querySelector('.category-btn').addEventListener('click', function() {
+            alert('전체 카테고리 메뉴가 열립니다.');
+        });
+    </script>
+</body>
+</html>

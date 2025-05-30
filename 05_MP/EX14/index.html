@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore the lineup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .compare-link {
+            color: #007aff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .lineup {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        .phone-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-display {
+            position: relative;
+            margin-bottom: 30px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-back {
+            width: 140px;
+            height: 280px;
+            border-radius: 35px;
+            position: absolute;
+            left: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-front {
+            width: 130px;
+            height: 270px;
+            background: #000;
+            border-radius: 30px;
+            position: relative;
+            z-index: 2;
+            right: 20px;
+            overflow: hidden;
+            border: 3px solid #333;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffd89b 0%, #19547b 100%);
+            position: relative;
+        }
+
+        .person-silhouette {
+            position: absolute;
+            bottom: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .camera {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .camera.dual::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 0;
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .camera.triple::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 0;
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        .camera.triple::before {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+        }
+
+        /* Phone Colors */
+        .gold { background: linear-gradient(135deg, #ddb892 0%, #e8c5a0 100%); }
+        .blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .white { background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%); }
+        .pink { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+
+        .color-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+        }
+
+        .dot.active {
+            opacity: 1;
+        }
+
+        .dot.gold { background: #ddb892; }
+        .dot.blue { background: #667eea; }
+        .dot.white { background: #ffffff; border: 1px solid #ddd; }
+        .dot.pink { background: #ffecd2; }
+        .dot.purple { background: #b19cd9; }
+        .dot.green { background: #a8e6cf; }
+        .dot.black { background: #333; }
+
+        .phone-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 15px;
+        }
+
+        .phone-tagline {
+            font-size: 17px;
+            color: #86868b;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .price {
+            font-size: 17px;
+            color: #1d1d1f;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #007aff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056cc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #007aff;
+            border: 1px solid transparent;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 122, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+            
+            .lineup {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Explore the lineup.</h1>
+            <a href="#" class="compare-link">Compare all models ›</a>
+        </div>
+
+        <div class="lineup">
+            <!-- iPhone 16 Pro -->
+            <div class="phone-card">
+                <div class="phone-display">
+                    <div class="phone-back gold"></div>
+                    <div class="phone-front">
+                        <div class="phone-screen">
+                            <div class="camera triple"></div>
+                            <div class="person-silhouette"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-dots">
+                    <div class="dot gold"></div>
+                    <div class="dot white"></div>
+                    <div class="dot black active"></div>
+                    <div class="dot blue"></div>
+                </div>
+                <h2 class="phone-name">iPhone 16 Pro</h2>
+                <p class="phone-tagline">The ultimate iPhone.</p>
+                <p class="price">From $999 or $41.62/mo. for 24 mo.**</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                    <a href="#" class="btn btn-secondary">Buy ›</a>
+                </div>
+            </div>
+
+            <!-- iPhone 16 -->
+            <div class="phone-card">
+                <div class="phone-display">
+                    <div class="phone-back blue"></div>
+                    <div class="phone-front">
+                        <div class="phone-screen">
+                            <div class="camera dual"></div>
+                            <div class="person-silhouette"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-dots">
+                    <div class="dot blue"></div>
+                    <div class="dot pink"></div>
+                    <div class="dot green"></div>
+                    <div class="dot black active"></div>
+                </div>
+                <h2 class="phone-name">iPhone 16</h2>
+                <p class="phone-tagline">A total powerhouse.</p>
+                <p class="price">From $799 or $33.29/mo. for 24 mo.**</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                    <a href="#" class="btn btn-secondary">Buy ›</a>
+                </div>
+            </div>
+
+            <!-- iPhone 16e -->
+            <div class="phone-card">
+                <div class="phone-display">
+                    <div class="phone-back white"></div>
+                    <div class="phone-front">
+                        <div class="phone-screen">
+                            <div class="camera"></div>
+                            <div class="person-silhouette"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-dots">
+                    <div class="dot black active"></div>
+                </div>
+                <h2 class="phone-name">iPhone 16e</h2>
+                <p class="phone-tagline">Latest iPhone. Greatest price.</p>
+                <p class="price">From $599 or $24.95/mo. for 24 mo.**</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                    <a href="#" class="btn btn-secondary">Buy ›</a>
+                </div>
+            </div>
+
+            <!-- iPhone 15 -->
+            <div class="phone-card">
+                <div class="phone-display">
+                    <div class="phone-back pink"></div>
+                    <div class="phone-front">
+                        <div class="phone-screen">
+                            <div class="camera dual"></div>
+                            <div class="person-silhouette"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="color-dots">
+                    <div class="dot pink"></div>
+                    <div class="dot blue"></div>
+                    <div class="dot green"></div>
+                    <div class="dot white"></div>
+                    <div class="dot black active"></div>
+                </div>
+                <h2 class="phone-name">iPhone 15</h2>
+                <p class="phone-tagline">As amazing as ever.</p>
+                <p class="price">From $699 or $29.12/mo. for 24 mo.**</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-primary">Learn more</a>
+                    <a href="#" class="btn btn-secondary">Buy ›</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.querySelectorAll('.phone-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Color dot interaction
+        document.querySelectorAll('.color-dots').forEach(dotContainer => {
+            const dots = dotContainer.querySelectorAll('.dot');
+            const phoneBack = dotContainer.closest('.phone-card').querySelector('.phone-back');
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                    
+                    // Change phone color
+                    phoneBack.className = 'phone-back ' + dot.classList[1];
+                });
+            });
+        });
+    </script>
+</body>
+</html>
