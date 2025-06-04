@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라면 도구 검색결과 - 라면로드</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gmarket-red: #e63312;
+            --gmarket-orange: #ff6b00;
+            --gmarket-gray: #f5f5f5;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--gmarket-gray);
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: #f8f9fa;
+            font-size: 0.8rem;
+        }
+
+        .navbar-brand {
+            font-size: 2.5rem;
+            color: #FF4757;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-form {
+            max-width: 500px;
+        }
+
+        .search-form .form-control {
+            border: 2px solid var(--gmarket-red);
+            border-right: none;
+        }
+
+        .search-form .btn {
+            background-color: var(--gmarket-red);
+            border: 2px solid var(--gmarket-red);
+            border-left: none;
+        }
+
+        .cart-badge {
+            background-color: var(--gmarket-orange);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: white;
+            border-radius: 0;
+            margin-bottom: 0;
+        }
+
+        /* Search Result Header */
+        .search-result-header {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-title {
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        .highlight {
+            color: var(--gmarket-red);
+            font-weight: bold;
+        }
+
+        .sort-btn {
+            font-size: 0.85rem;
+        }
+
+        .sort-btn.active {
+            background-color: var(--gmarket-red);
+            border-color: var(--gmarket-red);
+        }
+
+        /* Filter Sidebar */
+        .filter-sidebar {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .filter-title {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--gmarket-red);
+            border-color: var(--gmarket-red);
+        }
+
+        .form-check-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .form-check-label:hover {
+            color: var(--gmarket-red);
+        }
+
+        .price-input {
+            max-width: 80px;
+        }
+
+        /* Product Cards */
+        .product-grid-container {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .product-badge.discount {
+            background-color: var(--gmarket-orange);
+        }
+
+        .product-badge.best {
+            background-color: var(--gmarket-red);
+        }
+
+        .product-badge.new {
+            background-color: #28a745;
+        }
+
+        .product-brand {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .product-name {
+            font-size: 0.9rem;
+            color: #333;
+            height: 2.5rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.3;
+        }
+
+        .original-price {
+            font-size: 0.8rem;
+            color: #6c757d;
+            text-decoration: line-through;
+        }
+
+        .discount-rate {
+            color: var(--gmarket-red);
+            font-weight: bold;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-rating {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .free-shipping {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* View Toggle */
+        .view-btn {
+            width: 35px;
+            height: 35px;
+        }
+
+        .view-btn.active {
+            background-color: var(--gmarket-red);
+            border-color: var(--gmarket-red);
+        }
+
+        /* Pagination */
+        .pagination .page-link {
+            color: #333;
+            border-color: #dee2e6;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: var(--gmarket-red);
+            border-color: var(--gmarket-red);
+        }
+
+        .pagination .page-link:hover {
+            color: var(--gmarket-red);
+            border-color: var(--gmarket-red);
+        }
+
+        /* Custom animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .search-form {
+                margin: 0.5rem 0;
+            }
+            
+            .filter-offcanvas {
+                width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar py-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 text-end">
+                    <small>
+                        <a href="#" class="text-decoration-none me-3">로그인</a>
+                        <a href="#" class="text-decoration-none me-3">회원가입</a>
+                        <a href="#" class="text-decoration-none">고객센터</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./mainpage.html">🍜 RamenRoad</a>
+            
+            <!-- Search Form -->
+            <form class="search-form d-flex mx-auto">
+                <input class="form-control" type="search" placeholder="" value="">
+                <button class="btn btn-primary" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+            
+            <!-- User Menu -->
+            <div class="d-flex align-items-center">
+                <a href="#" class="text-decoration-none me-3 d-none d-md-inline">내정보</a>
+                <a href="#" class="text-decoration-none me-3 d-none d-md-inline">주문배송</a>
+                <a href="#" class="btn btn-primary position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill cart-badge">
+                        3
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="bg-white">
+        <div class="container-fluid">
+            <ol class="breadcrumb mb-0 py-2">
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">홈</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">검색결과</a></li>
+                <li class="breadcrumb-item active">라면 도구</li>
+            </ol>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <!-- Search Result Header -->
+        <div class="search-result-header p-4 mb-4">
+            <h1 class="search-title mb-3">'라면 도구' 검색결과</h1>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">총 <span class="highlight">436</span>개의 상품이 있습니다.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex gap-2 justify-content-md-end mt-2 mt-md-0">
+                        <button class="btn btn-outline-secondary sort-btn active" data-sort="popular">인기순</button>
+                        <button class="btn btn-outline-secondary sort-btn" data-sort="price-low">낮은가격순</button>
+                        <button class="btn btn-outline-secondary sort-btn" data-sort="price-high">높은가격순</button>
+                        <button class="btn btn-outline-secondary sort-btn" data-sort="discount">할인율순</button>
+                        <button class="btn btn-outline-secondary sort-btn" data-sort="review">리뷰많은순</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Filter Sidebar (Desktop) -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="filter-sidebar p-4">
+                    <!-- Brand Filter -->
+                    <div class="mb-4">
+                        <h5 class="filter-title mb-3">브랜드</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="brand1">
+                            <label class="form-check-label" for="brand1">농심 (89)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="brand2">
+                            <label class="form-check-label" for="brand2">삼양 (67)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="brand3">
+                            <label class="form-check-label" for="brand3">오뚜기 (45)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="brand4">
+                            <label class="form-check-label" for="brand4">기타 브랜드 (235)</label>
+                        </div>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="mb-4">
+                        <h5 class="filter-title mb-3">가격대</h5>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <input type="number" class="form-control price-input" placeholder="최소" value="5000">
+                            <span>~</span>
+                            <input type="number" class="form-control price-input" placeholder="최대" value="50000">
+                            <button class="btn btn-primary btn-sm">적용</button>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price1">
+                            <label class="form-check-label" for="price1">5,000원 이하 (23)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price2">
+                            <label class="form-check-label" for="price2">5,000원 ~ 20,000원 (189)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price3">
+                            <label class="form-check-label" for="price3">20,000원 ~ 50,000원 (156)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price4">
+                            <label class="form-check-label" for="price4">50,000원 이상 (68)</label>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="mb-4">
+                        <h5 class="filter-title mb-3">카테고리</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="cat1">
+                            <label class="form-check-label" for="cat1">컵/머그컵 (123)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="cat2">
+                            <label class="form-check-label" for="cat2">키링/악세서리 (89)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="cat3">
+                            <label class="form-check-label" for="cat3">의류 (67)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="cat4">
+                            <label class="form-check-label" for="cat4">피규어/인형 (45)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="cat5">
+                            <label class="form-check-label" for="cat5">문구용품 (112)</label>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Filter -->
+                    <div class="mb-4">
+                        <h5 class="filter-title mb-3">배송</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="ship1">
+                            <label class="form-check-label" for="ship1">무료배송 (298)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="ship2">
+                            <label class="form-check-label" for="ship2">당일배송 (67)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="col-lg-9">
+                <div class="product-grid-container p-4">
+                    <!-- View Options -->
+                    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+                        <div class="d-flex gap-1">
+                            <button class="btn btn-outline-secondary view-btn active">
+                                <i class="bi bi-grid-3x3-gap"></i>
+                            </button>
+                            <button class="btn btn-outline-secondary view-btn">
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div>
+                        <div class="d-lg-none">
+                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
+                                <i class="bi bi-funnel"></i> 필터
+                            </button>
+                        </div>
+                        <small class="text-muted">1-24 / 436개</small>
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div class="row g-4" id="productGrid">
+                        <!-- Product 1 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge best">베스트</span>
+                                    <div class="text-center">
+                                        <img src="./img/Ramen_Pot.jpg" height="240px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">쁘띠끄</div>
+                                    <h6 class="product-name mb-2">인덕션냄비 양은 인덕션용 16cm</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">14,500원</span>
+                                        <span class="discount-rate me-1">20%</span>
+                                        <div class="product-price">11,600원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★★</span>
+                                        <span>(234)</span>
+                                    </div>
+                                    <div class="free-shipping">무료배송</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <div class="text-center">
+                                        <img src="./img/Ramen_Pot2.jpg" height="230px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">서원리빙</div>
+                                    <h6 class="product-name mb-2">국내산 IH 스텐 라면냄비 18cm 계량 눈금</h6>
+                                    <div class="mb-2">
+                                        <div class="product-price">27,900원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★☆</span>
+                                        <span>(189)</span>
+                                    </div>
+                                    <div class="free-shipping">무료배송</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge new">신상</span>
+                                    <div class="text-center">
+                                        <img src="./img/Ramen_PaperPot.png" height="250px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">모아샵v</div>
+                                    <h6 class="product-name mb-2">(1100cc) 종이냄비 5P세트 (인덕션사용가능)</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">13,620원</span>
+                                        <span class="discount-rate me-1">7%</span>
+                                        <div class="product-price">12,570원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★★</span>
+                                        <span>(156)</span>
+                                    </div>
+                                    <div class="free-shipping">무료배송</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge discount">8%</span>
+                                    <div class="text-center">
+                                        <img src="./img/Puffer_Fish.jpg" height="210px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">해피셀러하우스2</div>
+                                    <h6 class="product-name mb-2">복어 나무 냄비 받침대</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">19,690원</span>
+                                        <span class="discount-rate me-1">8%</span>
+                                        <div class="product-price">17,990원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★☆</span>
+                                        <span>(89)</span>
+                                    </div>
+                                    <div class="text-muted small">배송비 2,500원</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge discount">60%</span>
+                                    <div class="text-center">
+                                        <img src="./img/Prop_3Colors.jpg" height="210px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">위라이즈</div>
+                                    <h6 class="product-name mb-2">위라이즈 실리콘 냄비받침 145mm(랜덤)</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">13,560원</span>
+                                        <span class="discount-rate me-1">60%</span>
+                                        <div class="product-price">5,290원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★★</span>
+                                        <span>(267)</span>
+                                    </div>
+                                    <div class="free-shipping">무료배송</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge discount">7%</span>
+                                    <div class="text-center">
+                                        <img src="./img/Ladles.jpg" height="200px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">티티케이샵</div>
+                                    <h6 class="product-name mb-2">이딜리 국자 스텐 200ml</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">18,420원</span>
+                                        <span class="discount-rate me-1">7%</span>
+                                        <div class="product-price">16,990원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★☆☆</span>
+                                        <span>(45)</span>
+                                    </div>
+                                    <div class="text-muted small">배송비 2,500원</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge best">HOT</span>
+                                    <div class="text-center">
+                                        <img src="./img/Tongs.jpg" height="230px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">걷는하비</div>
+                                    <h6 class="product-name mb-2">라면집게</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">5,330원</span>
+                                        <span class="discount-rate me-1">6%</span>
+                                        <div class="product-price">4,980원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★★</span>
+                                        <span>(312)</span>
+                                    </div>
+                                    <div class="free-shipping">무료배송</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-card h-100">
+                                <div class="product-image">
+                                    <span class="badge product-badge discount">7%</span>
+                                    <div class="text-center">
+                                        <img src="./img/Cutleryset.png" height="230px">
+                                    </div>
+                                </div>
+                                <div class="card-body p-3">
+                                    <div class="product-brand mb-1">redverry17</div>
+                                    <h6 class="product-name mb-2">나무 옻칠 수저 4벌 세트</h6>
+                                    <div class="mb-2">
+                                        <span class="original-price me-1">25,690원</span>
+                                        <span class="discount-rate me-1">7%</span>
+                                        <div class="product-price">23,720원</div>
+                                    </div>
+                                    <div class="product-rating mb-2">
+                                        <span class="stars">★★★★☆</span>
+                                        <span>(78)</span>
+                                    </div>
+                                    <div class="free-shipping">무료배송</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Product pagination" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-
